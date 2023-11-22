@@ -1,0 +1,65 @@
+<!-- Full copyright to the author. No use allowed-->
+<!DOCTYPE html data-theme="dark">
+
+<head>
+  <title>Timer</title>
+  <link href='https://fonts.googleapis.com/css?family=Electrolize&text=0123456789:' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body x-data="main()">
+  <dashboard class="" x-show="mode === MODES.RUNNING || mode === MODES.PAUSED">
+    <timer>
+      <display class="after-time" x-show="passedTargetTime">
+        <sign>+</sign>
+        <minutes x-text="minutes"></minutes>
+        <separator>:</separator>
+        <seconds x-text="seconds"></seconds>
+      </display>
+      <display class="on-time" x-show="!passedTargetTime">
+        <minutes x-text="minutes"></minutes>
+        <seconds x-text="seconds"></seconds>
+      </display>
+      <actions>
+        <!-- <button @click="togglePlay()">play/stop</button> -->
+        <button class="secondary" @click="uiReset()">reset</button>
+      </actions>
+    </timer>
+
+    <counter>
+      <display>
+        <count x-text="count"></count>
+        <target x-text="'of ' + targetCount"></target>
+      </display>
+      <actions>
+        <button class="secondary" @click="increaseCounter(3)">+3</button>
+        <button @click="increaseCounter(4)">+4</button>
+        <button @click="increaseCounter(5)">+5</button>
+        <button class="secondary" @click="increaseCounter(-1)">-1</button>
+        <button class="secondary" @click="increaseCounter(+1)">+1</button>
+      </actions>
+    </counter>
+  </dashboard>
+
+  <setup x-show="mode === MODES.SETUP">
+    <h2 class="mt20">Start a new session </h2>
+    <div>
+      <div>
+        <label for="set-timer">Timer (minutes):</label>
+        <input id="set-timer" class="huge" type="number" x-model="exerciseLengthInMinutes" />
+      </div>
+      <div>
+        <label for="set-counter">Repetitions:</label>
+        <input id="set-counter" class="huge" x-model="targetCount" />
+      </div>
+    </div>
+    <div class="mt40">
+      <button @click="start">start</button>
+    </div>
+  </setup>
+</body>
+<script defer type="module" src="./main.mjs"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</html>

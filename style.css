@@ -1,0 +1,79 @@
+html {
+  background-color: #11191f;
+  color: hsl(205, 16%, 77%);
+  font-family: 'Electrolize', sans-serif;
+}
+
+h1{color: hsl(205, 20%, 94%);}
+h2{color: #e1e6eb;}
+h3{color: hsl(205, 18%, 86%);}
+h4{color: #c8d1d8;}
+h5{color: hsl(205, 16%, 77%);}
+h6{color: #afbbc4;}
+
+
+button { touch-action: manipulation; padding: 20px;}
+button.primary {background-color: #2B6C82; border-color: #2B6C82;}
+
+.mt20 {margin-top:20px;}
+.mt40 {margin-top:40px;}
+
+dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+display {
+  display: grid;
+  grid-gap: 20px;
+}
+display.on-time {
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+}
+
+display.after-time {
+  font-size: 60px;
+  color: #c0ca33;
+  grid-template-columns: 1fr 50px 100px 10px 100px 1fr;
+  justify-items: center;
+  align-items: center;
+  grid-template-areas:
+    ". sign minutes separator seconds .";
+  grid-gap: 10px;
+}
+display.after-time sign { grid-area: sign;}
+display.after-time minutes { grid-area: minutes;}
+display.after-time separator { grid-area: separator;}
+display.after-time seconds { grid-area: seconds;}
+
+display.on-time minutes {
+  font-size: 43px;
+  text-align: right;
+  line-height: 3.3em;
+}
+
+display.on-time seconds,
+counter display count {
+  font-size: 140px;
+}
+
+counter display {
+  grid-template-columns: 1fr 1fr;
+}
+
+counter actions {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 18px;
+}
+counter actions button {
+  margin-bottom: 0px;
+}
+
+setup {
+  margin: 20px;
+  display: block;
+}
