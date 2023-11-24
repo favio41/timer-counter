@@ -18,7 +18,7 @@ window.document.addEventListener('alpine:init', () => {
     interval: null,
     init() {
       this.reset()
-      this.start()
+      // this.start()
     },
 
     // interval
