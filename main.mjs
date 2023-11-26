@@ -1,5 +1,6 @@
 /* Full copyright to the author. No use allowed */
 import TargetTime from './src/target-time.mjs';
+import * as Screen from './src/screen.mjs'
 
 window.document.addEventListener('alpine:init', () => {
   const initialValues = {
@@ -80,5 +81,7 @@ window.document.addEventListener('alpine:init', () => {
     },
     mode: MODES.SETUP,
     targetCount: null,
+    // requestFullscreen: Screen.requestFullscreen,
+    ...Screen
   }))
 })
