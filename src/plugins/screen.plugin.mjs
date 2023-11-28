@@ -1,4 +1,4 @@
-export const requestFullscreen = () => {
+function requestFullscreen() {
   navigator.wakeLock.request("screen").catch(err => {
     alert(`${err.name}, ${err.message}`)
   })
@@ -19,3 +19,9 @@ export const requestFullscreen = () => {
   });
 }
 
+
+export default function () {
+  return {
+    requestFullscreen
+  }
+}
